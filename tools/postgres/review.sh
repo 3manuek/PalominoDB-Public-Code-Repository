@@ -441,8 +441,8 @@ do
            JOIN pg_stat_all_indexes psai ON x.indexrelid = psai.indexrelid )\
     AS foo\
     ON t.tablename = foo.ctablename\
-  WHERE t.schemaname='public'\
-  ORDER BY 1,2; " >> $CG_LOG
+  -- WHERE t.schemaname='public'\
+  ORDER BY 1,2 DESC; " >> $CG_LOG
 
 
   _html_nl_
