@@ -21,7 +21,7 @@ PGUSER=$DEF_PGUSER
 PGHOST=""
 PORT=5432
 HTML="-H"
-TAR_FILE=$(hostname)_review.tar
+TAR_FILE=review_$(hostname).tar
 COUNTER_ID=1 #For the div and <a> references, generates a sequence
 
 usage()
@@ -489,9 +489,11 @@ _html_block_end_
 
 ## The end
 ##########
+
+
 echo "All the information was dump to  $CG_LOG file."
 
-[ $TAR ] && { tar -cf $TAR_FILE  $CG_LOG ; echo "Tar file $TAR_FILE" ; }
+[ $TAR ] && { tar -cf $TAR_FILE  $CG_LOG ; gzip $TAR_FILE;  echo "Tar file $TAR_FILE" ; }
 
 exit 0
 
